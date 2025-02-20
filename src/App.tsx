@@ -3,8 +3,16 @@ import { RefCleanUpDemo } from './RefDemo/RefCleanUpDemo'
 import { LikeButton } from './UseOptimistic/LikeButton'
 import { UpdateName } from './UseOptimistic/UpdateName'
 import { FormDemo } from './FormDemo/FormDemo'
+import { UseActionStateDemo } from './UseActionStateDemo'
 
-const DEMO = [RefCleanUpDemo, UpdateName, LikeButton, RefAsPropDemo, FormDemo]
+const DEMO = [
+  RefCleanUpDemo,
+  UpdateName,
+  LikeButton,
+  RefAsPropDemo,
+  FormDemo,
+  UseActionStateDemo,
+]
 
 function App() {
   return (
