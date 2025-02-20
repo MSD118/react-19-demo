@@ -1,11 +1,11 @@
-import { FetchButton } from './ActionsDemo/FetchToDoList'
+import { UseTransitionDemo } from './UseTransitionDemo/UseTransitionDemo'
 import { RefAsPropDemo } from './RefAsProp/RefAsPropDemo'
 import { RefCleanUpDemo } from './RefDemo/RefCleanUpDemo'
 import { LikeButton } from './UseOptimistic/LikeButton'
 import { UpdateName } from './UseOptimistic/UpdateName'
 
 const DEMO = [
-  FetchButton,
+  UseTransitionDemo,
   RefCleanUpDemo,
   UpdateName,
   LikeButton,

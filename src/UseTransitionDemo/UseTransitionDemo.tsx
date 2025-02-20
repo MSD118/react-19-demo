@@ -1,21 +1,21 @@
-import { useState, useTransition } from 'react';
+import { useState, useTransition } from 'react'
 // import 'tailwindcss/tailwind.css';
 
-export const FetchButton = () => {
-  const [todoList, setTodoList] = useState<ToDo[]>([]);
-  const [error, setError] = useState<string>('');
-  const [isLoading, startTransition] = useTransition();
+export const UseTransitionDemo = () => {
+  const [todoList, setTodoList] = useState<ToDo[]>([])
+  const [error, setError] = useState<string>('')
+  const [isLoading, startTransition] = useTransition()
 
   const handleOnClick = () => {
     startTransition(async () => {
       try {
-        const todos = await fetchTodoList();
-        setTodoList(todos);
+        const todos = await fetchTodoList()
+        setTodoList(todos)
       } catch (error) {
-        setError((error as Error).message);
+        setError((error as Error).message)
       }
-    });
-  };
+    })
+  }
 
   return (
     <div className='flex flex-col items-center max-w-md mx-auto'>
@@ -31,29 +31,29 @@ export const FetchButton = () => {
       <br />
       <TodoList todos={todoList} isLoading={isLoading} error={error} />
     </div>
-  );
-};
+  )
+}
 
 type ToDo = {
-  id: number;
-  task: string;
-};
+  id: number
+  task: string
+}
 
 type ToDoListProps = {
-  todos: ToDo[];
-  isLoading: boolean;
-  error: string;
-};
+  todos: ToDo[]
+  isLoading: boolean
+  error: string
+}
 
 const TodoList = ({ todos, isLoading, error }: ToDoListProps) => {
   if (isLoading) {
     return (
       <div className='loader border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full w-10 h-10 animate-spin'></div>
-    );
+    )
   }
 
   if (error) {
-    return <p className='text-black font-bold mt-2 text-lg'>Error: {error}</p>;
+    return <p className='text-black font-bold mt-2 text-lg'>Error: {error}</p>
   }
 
   return (
@@ -67,14 +67,14 @@ const TodoList = ({ todos, isLoading, error }: ToDoListProps) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
 const fetchTodoList = async (): Promise<ToDo[]> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (Math.random() < 0.2) {
-        reject(new Error('Failed to fetch ToDo list'));
+        reject(new Error('Failed to fetch ToDo list'))
       } else {
         resolve([
           { id: 1, task: 'Do laundry' },
@@ -87,8 +87,8 @@ const fetchTodoList = async (): Promise<ToDo[]> => {
           { id: 8, task: 'Mow the lawn' },
           { id: 9, task: 'Water the plants' },
           { id: 10, task: 'Vacuum the floor' },
-        ]);
+        ])
       }
-    }, 3000);
-  });
-};
+    }, 3000)
+  })
+}
