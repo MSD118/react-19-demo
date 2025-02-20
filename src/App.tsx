@@ -1,16 +1,10 @@
-import { UseTransitionDemo } from './UseTransitionDemo/UseTransitionDemo'
 import { RefAsPropDemo } from './RefAsProp/RefAsPropDemo'
 import { RefCleanUpDemo } from './RefDemo/RefCleanUpDemo'
 import { LikeButton } from './UseOptimistic/LikeButton'
 import { UpdateName } from './UseOptimistic/UpdateName'
+import { FormDemo } from './FormDemo/FormDemo'
 
-const DEMO = [
-  UseTransitionDemo,
-  RefCleanUpDemo,
-  UpdateName,
-  LikeButton,
-  RefAsPropDemo,
-]
+const DEMO = [RefCleanUpDemo, UpdateName, LikeButton, RefAsPropDemo, FormDemo]
 
 function App() {
   return (
