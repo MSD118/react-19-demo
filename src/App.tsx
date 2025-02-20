@@ -1,9 +1,16 @@
 import { FetchButton } from './ActionsDemo/FetchToDoList'
+import { RefAsPropDemo } from './RefAsProp/RefAsPropDemo'
 import { RefCleanUpDemo } from './RefDemo/RefCleanUpDemo'
 import { LikeButton } from './UseOptimistic/LikeButton'
 import { UpdateName } from './UseOptimistic/UpdateName'
 
-const DEMO = [FetchButton, RefCleanUpDemo, UpdateName, LikeButton]
+const DEMO = [
+  FetchButton,
+  RefCleanUpDemo,
+  UpdateName,
+  LikeButton,
+  RefAsPropDemo,
+]
 
 function App() {
   return (
