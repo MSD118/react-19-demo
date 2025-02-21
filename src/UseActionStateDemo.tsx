@@ -1,85 +1,61 @@
-import { useActionState } from 'react'
+import { startTransition, useActionState } from 'react'
+import { requestFormReset } from 'react-dom'
 
 export const UseActionStateDemo = () => {
-  return (
-    <>
-      <AddToCartForm itemID='1' itemTitle='JavaScript: The Definitive Guide' />
-      <AddToCartForm itemID='2' itemTitle='JavaScript: The Good Parts' />
-    </>
-  )
-}
+  const [status, formAction, isPending] = useActionState(submitAction, null)
 
-function AddToCartForm({
-  itemID,
-  itemTitle,
-}: {
-  itemID: string
-  itemTitle: string
-}) {
-  const [message, formAction, isPending] = useActionState(addToCart, null)
+  const handleReset = (e: React.MouseEvent<HTMLButtonElement>) => {
+    startTransition(() => {
+      requestFormReset(e.currentTarget.form as HTMLFormElement)
+    })
+  }
+
   return (
-    <form
-      action={formAction}
-      className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-2xl'
-    >
-      <h2 className='text-xl font-bold mb-4'>{itemTitle}</h2>
-      <input type='hidden' name='itemID' value={itemID} />
-      <div className='flex items-center gap-2'>
+    <form className='flex flex-col w-72' action={formAction}>
+      <input
+        type='text'
+        name='first-name'
+        placeholder='First Name'
+        className='mb-2 p-2 border border-gray-300 rounded'
+      ></input>
+      <input
+        type='text'
+        name='last-name'
+        placeholder='Last Name'
+        className='mb-2 p-2 border border-gray-300 rounded'
+      ></input>
+      <button type='submit' className='mb-2 p-2 bg-blue-500 text-white rounded'>
+        {isPending ? 'Submitting...' : 'Submit'}
+      </button>
+      <div className='flex items-center justify-between'>
         <button
-          type='submit'
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          type='reset'
+          className='mr-2 p-2 bg-red-500 text-white rounded'
+          onClick={handleReset}
         >
-          Add to Cart
+          Reset
         </button>
-        <p className='mt-4'>{isPending ? 'Loading...' : message}</p>
+        <div className='text-green-500'>{status ? status?.status : null}</div>
       </div>
     </form>
   )
 }
 
-const addToCart = async (
-  _: string | null,
+const submitAction = async (
+  _: { status: string } | null,
   formData: FormData,
-): Promise<string> => {
-  const itemID = formData.get('itemID')
-  if (itemID === '1') {
-    // Add a fake delay to make waiting noticeable.
+): Promise<{ status: string } | null> => {
+  const firstName = formData.get('first-name')
+  const lastName = formData.get('last-name')
+  if (firstName && lastName) {
     await new Promise((resolve) => {
       setTimeout(resolve, 500)
     })
-    return 'Added to cart'
+    return { status: 'success' }
   } else {
-    // Add a fake delay to make waiting noticeable.
     await new Promise((resolve) => {
-      setTimeout(resolve, 2000)
+      setTimeout(resolve, 500)
     })
-    return "Couldn't add to cart: the item is sold out."
+    return { status: 'error: Please fill in both fields' }
   }
 }
-
-// export const UseActionStateDemo = () => {
-//   const [state, formAction, isPending] = useActionState(increment, 0)
-//   return (
-//     <form
-//       action={formAction}
-//       className='px-8 pt-6 pb-8 mb-4 w-fit flex flex-col gap-4 justify-center items-center'
-//     >
-//       <button
-//         type='submit'
-//         className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-//       >
-//         Increment
-//       </button>
-//       <div className='text-xl font-bold'>
-//         {isPending ? 'Incrementing....' : state}
-//       </div>
-//     </form>
-//   )
-// }
-
-// const increment = async (prevState: number) => {
-//   await new Promise((resolve) => {
-//     setTimeout(resolve, 500)
-//   })
-//   return prevState + 1
-// }
