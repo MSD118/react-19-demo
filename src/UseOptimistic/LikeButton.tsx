@@ -24,7 +24,7 @@ export const LikeButton = () => {
       toast.error('Failed to like')
     }
   }
-  console.log(optimisticLikes)
+
   return (
     <form action={handleLike}>
       <div className='flex gap-8 justify-center items-center'>
