@@ -8,11 +8,11 @@ import { UpdateName } from './UseOptimistic/UpdateName'
 
 const DEMO = [
   { title: 'Ref Clean Up', component: RefCleanUpDemo },
-  { title: 'Update Name', component: UpdateName },
-  { title: 'Like Button', component: LikeButton },
+  { title: 'useOptimistic', component: UpdateName },
+  { title: 'useOptimistic', component: LikeButton },
   { title: 'Ref As Prop', component: RefAsPropDemo },
-  { title: 'Form Demo', component: FormDemo },
-  { title: 'Use Action State', component: UseActionStateDemo },
+  { title: '<form>', component: FormDemo },
+  { title: 'useActionState', component: UseActionStateDemo },
 ]
 
 export const DemoWindow = () => {
