@@ -19,7 +19,7 @@ export const RefAsPropDemo = () => {
       >
         Switch Border
       </button>
-      <TitleComponent title='Ref as Prop' ref={titleRef} />
+      <TitleComponent title='Component with ref as a prop' ref={titleRef} />
     </div>
   )
 }
@@ -32,7 +32,7 @@ const TitleComponent = ({
   ref: Ref<HTMLDivElement>
 }) => {
   return (
-    <div className='font-extrabold text-7xl p-2' ref={ref}>
+    <div className='font-extrabold text-2xl p-2' ref={ref}>
       {title}
     </div>
   )
