@@ -35,7 +35,13 @@ export const UseActionStateDemo = () => {
         >
           Reset
         </button>
-        <div className='text-green-500'>{status ? status?.status : null}</div>
+        <div
+          className={
+            status?.status.includes('error') ? 'text-red-500' : 'text-green-500'
+          }
+        >
+          {status ? status?.status : null}
+        </div>
       </div>
     </form>
   )
