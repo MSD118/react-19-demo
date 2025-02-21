@@ -5,6 +5,8 @@ import { RefCleanUpDemo } from './RefDemo/RefCleanUpDemo'
 import { UseActionStateDemo } from './UseActionStateDemo'
 import { LikeButton } from './UseOptimistic/LikeButton'
 import { UpdateName } from './UseOptimistic/UpdateName'
+import { UseFormStatusDemo } from './UseFormStatusDemo'
+import { UseContextDemo } from './Use/UseContextDemo'
 
 const DEMO = [
   { title: 'Ref Clean Up', component: RefCleanUpDemo },
@@ -13,6 +15,8 @@ const DEMO = [
   { title: 'Ref As Prop', component: RefAsPropDemo },
   { title: '<form>', component: FormDemo },
   { title: 'useActionState', component: UseActionStateDemo },
+  { title: 'useFormStatus', component: UseFormStatusDemo },
+  { title: `"use" for Context`, component: UseContextDemo },
 ]
 
 export const DemoWindow = () => {
