@@ -32,7 +32,7 @@ export const DemoWindow = () => {
     setPage((prev) => prev - 1)
   }
   return (
-    <div className='p-4 w-full min-h-screen'>
+    <div className='p-4 w-full min-h-screen font-[cascadia_mono]'>
       <div className='flex gap-2 mb-4'>
         <button
           onClick={handlePrev}
