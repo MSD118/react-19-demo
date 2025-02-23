@@ -1,5 +1,5 @@
 import { createContext, use, useState } from 'react'
-import ReactSwitch from 'react-switch'
+import { Toggle } from '../Common/Components/Toggle'
 
 type ThemeContextType = {
   text: string
@@ -45,14 +45,7 @@ const DisplayBox = () => {
   return (
     <div className='flex flex-col items-center gap-4 w-full'>
       <div className='flex flex-row items-center gap-2 w-full'>
-        <ReactSwitch
-          height={20}
-          width={40}
-          uncheckedIcon={false}
-          checkedIcon={false}
-          checked={toggle}
-          onChange={(checked) => setToggle(checked)}
-        />
+        <Toggle checked={toggle} onChange={(checked) => setToggle(checked)} />
         <div className='font-mono text-sm text-nowrap'>
           Toggle to show the text from the context.
         </div>
