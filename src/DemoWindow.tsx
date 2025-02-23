@@ -8,6 +8,7 @@ import { UpdateName } from './UseOptimistic/UpdateName'
 import { UseFormStatusDemo } from './UseFormStatusDemo'
 import { UseContextDemo } from './Use/UseContextDemo'
 import { UsePromiseDemo } from './Use/UsePromiseDemo'
+import { MetaDataDemo } from './MetaDataDemo'
 
 const DEMO = [
   { title: 'Ref Clean Up', component: RefCleanUpDemo },
@@ -19,6 +20,7 @@ const DEMO = [
   { title: 'useFormStatus', component: UseFormStatusDemo },
   { title: `"use" for Context`, component: UseContextDemo },
   { title: `"use" for Promise`, component: UsePromiseDemo },
+  { title: `Support for Document Metadata `, component: MetaDataDemo },
 ]
 
 export const DemoWindow = () => {
