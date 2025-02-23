@@ -33,7 +33,9 @@ const MessageContainer = ({
 }) => {
   return (
     <ErrorBoundary fallback={<p>Something went wrong</p>}>
-      <Suspense fallback={<p>Downloading message...</p>}>
+      <Suspense
+        fallback={<p className='animate-pulse'>Downloading message...</p>}
+      >
         <Message messagePromise={messagePromise} />
       </Suspense>
     </ErrorBoundary>
@@ -42,7 +44,7 @@ const MessageContainer = ({
 
 function Message({ messagePromise }: { messagePromise: Promise<string> }) {
   const message = use(messagePromise)
-  return <p>Here is the message: {message}</p>
+  return <p>{message}</p>
 }
 
 const fetchMessage = (): Promise<string> => {
