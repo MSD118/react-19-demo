@@ -57,6 +57,11 @@ export const DemoWindow = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const demo = DEMO[page]
+    window.history.replaceState(null, '', `?demo=${demo.id}`)
+  }, [page])
+
   return (
     <div className='p-4 w-full min-h-screen font-[cascadia_mono] flex flex-col justify-between'>
       <div className='flex flex-col items-center'>
