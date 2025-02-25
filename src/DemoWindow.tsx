@@ -34,8 +34,18 @@ export const DemoWindow = () => {
     setPage((prev) => prev - 1)
   }
   return (
-    <div className='p-4 w-full min-h-screen font-[cascadia_mono]'>
-      <div className='flex gap-2 mb-4'>
+    <div className='p-4 w-full min-h-screen font-[cascadia_mono] flex flex-col justify-between'>
+      <div className='flex flex-col items-center'>
+        {DEMO.map(({ title, component: Component }, index) =>
+          page === index ? (
+            <div key={index}>
+              <h2 className='text-4xl font-bold text-center mb-10'>{title}</h2>
+              <Component />
+            </div>
+          ) : null,
+        )}
+      </div>
+      <footer className='flex justify-center gap-2 mt-4'>
         <button
           onClick={handlePrev}
           className='px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700'
@@ -48,17 +58,7 @@ export const DemoWindow = () => {
         >
           Next
         </button>
-      </div>
-      <div className='flex flex-col items-center '>
-        {DEMO.map(({ title, component: Component }, index) =>
-          page === index ? (
-            <div key={index}>
-              <h2 className='text-4xl font-bold text-center mb-10'>{title}</h2>
-              <Component />
-            </div>
-          ) : null,
-        )}
-      </div>
+      </footer>
     </div>
   )
 }
