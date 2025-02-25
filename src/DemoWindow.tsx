@@ -25,14 +25,6 @@ const DEMO = [
 
 export const DemoWindow = () => {
   const [page, setPage] = useState(0)
-  const handleNext = () => {
-    if (DEMO.length === page + 1) return
-    setPage((prev) => prev + 1)
-  }
-  const handlePrev = () => {
-    if (page === 0) return
-    setPage((prev) => prev - 1)
-  }
   return (
     <div className='p-4 w-full min-h-screen font-[cascadia_mono] flex flex-col justify-between'>
       <div className='flex flex-col items-center'>
@@ -45,19 +37,18 @@ export const DemoWindow = () => {
           ) : null,
         )}
       </div>
-      <footer className='flex justify-center gap-2 mt-4'>
-        <button
-          onClick={handlePrev}
-          className='px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700'
+      <footer className='flex justify-between items-center mt-4'>
+        <select
+          value={page}
+          onChange={(e) => setPage(Number(e.target.value))}
+          className='px-4 py-2 bg-gray-200 rounded appearance-none'
         >
-          Prev
-        </button>
-        <button
-          onClick={handleNext}
-          className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700'
-        >
-          Next
-        </button>
+          {DEMO.map(({ title }, index) => (
+            <option key={index} value={index}>
+              {title}
+            </option>
+          ))}
+        </select>
       </footer>
     </div>
   )
