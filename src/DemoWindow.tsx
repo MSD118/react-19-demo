@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { FormDemo } from './FormDemo/FormDemo'
 import { RefAsPropDemo } from './RefAsProp/RefAsPropDemo'
 import { RefCleanUpDemo } from './RefDemo/RefCleanUpDemo'
@@ -11,20 +11,52 @@ import { UsePromiseDemo } from './Use/UsePromiseDemo'
 import { MetaDataDemo } from './MetaDataDemo'
 
 const DEMO = [
-  { title: 'Ref Clean Up', component: RefCleanUpDemo },
-  { title: 'useOptimistic', component: UpdateName },
-  { title: 'useOptimistic', component: LikeButton },
-  { title: 'Ref As Prop', component: RefAsPropDemo },
-  { title: '<form>', component: FormDemo },
-  { title: 'useActionState', component: UseActionStateDemo },
-  { title: 'useFormStatus', component: UseFormStatusDemo },
-  { title: `"use" for Context`, component: UseContextDemo },
-  { title: `"use" for Promise`, component: UsePromiseDemo },
-  { title: `Support for Document Metadata `, component: MetaDataDemo },
+  { id: 'ref-clean-up', title: 'Ref Clean Up', component: RefCleanUpDemo },
+  { id: 'use-optimistic-1', title: 'useOptimistic', component: UpdateName },
+  { id: 'use-optimistic-2', title: 'useOptimistic', component: LikeButton },
+  { id: 'ref-as-prop', title: 'Ref As Prop', component: RefAsPropDemo },
+  { id: 'form', title: '<form>', component: FormDemo },
+  {
+    id: 'use-action-state',
+    title: 'useActionState',
+    component: UseActionStateDemo,
+  },
+  {
+    id: 'use-form-status',
+    title: 'useFormStatus',
+    component: UseFormStatusDemo,
+  },
+  {
+    id: 'use-for-context',
+    title: `"use" for Context`,
+    component: UseContextDemo,
+  },
+  {
+    id: 'use-for-promise',
+    title: `"use" for Promise`,
+    component: UsePromiseDemo,
+  },
+  {
+    id: 'support-for-document-metadata',
+    title: `Support for Document Metadata`,
+    component: MetaDataDemo,
+  },
 ]
 
 export const DemoWindow = () => {
   const [page, setPage] = useState(0)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const demoParam = params.get('demo')
+    const demoIndex = DEMO.findIndex(({ id }) => id === demoParam)
+    if (demoIndex === -1) {
+      setPage(0)
+    } else {
+      setPage(demoIndex)
+    }
+  }, [])
+
   return (
     <div className='p-4 w-full min-h-screen font-[cascadia_mono] flex flex-col justify-between'>
       <div className='flex flex-col items-center'>
