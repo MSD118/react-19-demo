@@ -13,9 +13,9 @@ import { ContextAsProvider } from './ContextAsProviderDemo'
 import UseWebComponentDemo from './WebComponent/UseWebCompoentDemo'
 
 const DEMO = [
-  { id: 'ref-clean-up', title: 'Ref Clean Up', component: RefCleanUpDemo },
   { id: 'use-optimistic-1', title: 'useOptimistic', component: UpdateName },
   { id: 'use-optimistic-2', title: 'useOptimistic', component: LikeButton },
+  { id: 'ref-clean-up', title: 'Ref Clean Up', component: RefCleanUpDemo },
   { id: 'ref-as-prop', title: 'Ref As Prop', component: RefAsPropDemo },
   { id: 'form', title: '<form>', component: FormDemo },
   {
