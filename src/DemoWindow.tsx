@@ -9,6 +9,7 @@ import { UseFormStatusDemo } from './UseFormStatusDemo'
 import { UseContextDemo } from './Use/UseContextDemo'
 import { UsePromiseDemo } from './Use/UsePromiseDemo'
 import { MetaDataDemo } from './MetaDataDemo'
+import { ContextAsProvider } from './ContextAsProviderDemo'
 
 const DEMO = [
   { id: 'ref-clean-up', title: 'Ref Clean Up', component: RefCleanUpDemo },
@@ -40,6 +41,11 @@ const DEMO = [
     id: 'support-for-document-metadata',
     title: `Support for Document Metadata`,
     component: MetaDataDemo,
+  },
+  {
+    id: 'context-as-provider',
+    title: `Context as Provider`,
+    component: ContextAsProvider,
   },
 ]
 
