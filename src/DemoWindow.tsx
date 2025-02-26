@@ -10,6 +10,7 @@ import { UseContextDemo } from './Use/UseContextDemo'
 import { UsePromiseDemo } from './Use/UsePromiseDemo'
 import { MetaDataDemo } from './MetaDataDemo'
 import { ContextAsProvider } from './ContextAsProviderDemo'
+import UseWebComponentDemo from './WebComponent/UseWebCompoentDemo'
 
 const DEMO = [
   { id: 'ref-clean-up', title: 'Ref Clean Up', component: RefCleanUpDemo },
@@ -46,6 +47,11 @@ const DEMO = [
     id: 'context-as-provider',
     title: `Context as Provider`,
     component: ContextAsProvider,
+  },
+  {
+    id: 'web-components',
+    title: `web components`,
+    component: UseWebComponentDemo,
   },
 ]
 
